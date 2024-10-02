@@ -1,0 +1,11 @@
+{% extends "budgets/base.html" %}
+
+{% block content %}
+  <h3>Add a new transaction:</h3>
+
+  <form action="{% url 'budgets:add_one' %}" method="post">
+    {% csrf_token %}
+    {{form.as_div}}
+    <button name="submit">Add transaction</button>
+  </form>
+{% endblock content %}

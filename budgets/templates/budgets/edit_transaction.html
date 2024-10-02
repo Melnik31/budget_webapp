@@ -1,0 +1,11 @@
+{% extends "budgets/base.html" %}
+
+{% block content %}
+  <h3>Edit transaction:</h3>
+
+  <form action="{% url 'budgets:edit_transaction' transaction.id %}" method="post">
+    {% csrf_token %}
+    {{form.as_div}}
+    <button name="submit">Save Changes</button>
+  </form>
+{% endblock content %}

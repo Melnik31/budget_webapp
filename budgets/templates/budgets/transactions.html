@@ -22,10 +22,12 @@
             <td>{{ transaction.date }}</td>
             <td>
                 <a href="{% url 'budgets:delete_one' transaction.id %}">Delete</a>
+                <a href="{% url 'budgets:edit_transaction' transaction.id %}">Edit</a>
             </td>
         </tr>
         {% endfor %}
     </tbody>
   </table>
+  <a href="{% url 'budgets:add_one' %}">Add a new transaction</a>
   <h3>Total: ${{ total|floatformat:2 }}</h3>
 {% endblock content %}
