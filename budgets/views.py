@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib.auth.decorators import login_required
 from django.db.models import Sum
 
 from .models import Transaction
@@ -9,6 +10,7 @@ def index(requst):
     '''Home page'''
     return render(requst, 'budgets/index.html')
 
+@login_required
 def transactions(request):
     transactions = Transaction.objects.all().order_by('-date')
     total = Transaction.objects.aggregate(Sum('amount'))['amount__sum']
@@ -17,12 +19,13 @@ def transactions(request):
         'total': total,
     })
 
-
+@login_required
 def delete_one(request, transaction_id):
     transaction = get_object_or_404(Transaction, id=transaction_id)
     transaction.delete()
     return redirect('budgets:transactions')
 
+@login_required
 def add_one(request):
     if request.method != 'POST':
         form = TransactionForm()
@@ -35,6 +38,7 @@ def add_one(request):
     context = {'form': form}
     return render(request, 'budgets/add_one.html', context)
 
+@login_required
 def edit_transaction(request, transaction_id):
     transaction = get_object_or_404(Transaction, id=transaction_id)
     
