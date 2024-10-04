@@ -1,5 +1,15 @@
 {% extends 'budgets/base.html' %}
 
-{% block content %}
-<p>Best app to keep track of your budget.</p>
-{% endblock content %}
+{% block page_header %}
+  <div class="p-3 my-3 bg-light border rounded-3">
+    <div class="container-fluid py-4">
+        <h1 class="display-3">Track your budget the right way</h1>
+        <p class="lead">
+            Master Your Finances, Your Way. 
+            Easily add, delete, and edit transactions while keeping an eye on your total balance. 
+            Simple, effective budgeting at your fingertips.
+        </p>
+        <a class="btn btn-primary btn-lg mt-1" href="{% url 'accounts:register' %}">Register &raquo;</a>
+    </div>
+  </div>
+{% endblock page_header %}

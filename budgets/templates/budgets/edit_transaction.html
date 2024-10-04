@@ -1,11 +1,14 @@
 {% extends "budgets/base.html" %}
+{% load bootstrap5 %}
+
+{% block page_header %}
+<h3 class="mt-3">Edit transaction:</h3>
+{% endblock page_header %}
 
 {% block content %}
-  <h3>Edit transaction:</h3>
-
-  <form action="{% url 'budgets:edit_transaction' transaction.id %}" method="post">
+  <form class="w-50" action="{% url 'budgets:edit_transaction' transaction.id %}" method="post">
     {% csrf_token %}
-    {{form.as_div}}
-    <button name="submit">Save Changes</button>
+    {% bootstrap_form form %}
+    {% bootstrap_button button_type="submit" content="Save Changes" %}
   </form>
 {% endblock content %}

@@ -34,6 +34,8 @@ INSTALLED_APPS = [
     #My apps.
     'budgets',
     'accounts',
+    #Third party apps.
+    'bootstrap5',
     #Dedault apps.
     'django.contrib.admin',
     'django.contrib.auth',
@@ -127,6 +129,6 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #My settings
-LOGIN_REDIRECT_URL = 'budgets:index'
+LOGIN_REDIRECT_URL = 'budgets:transactions'
 LOGOUT_REDIRECT_URL = 'budgets:index'
 LOGIN_URL = 'accounts:login'

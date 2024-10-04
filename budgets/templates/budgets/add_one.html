@@ -1,11 +1,15 @@
 {% extends "budgets/base.html" %}
+{% load bootstrap5 %}
+
+{% block page_header %}
+<h3 class="mt-5">Add a new transaction:</h3>
+{% endblock page_header %}
+
 
 {% block content %}
-  <h3>Add a new transaction:</h3>
-
-  <form action="{% url 'budgets:add_one' %}" method="post">
+  <form class="w-50" action="{% url 'budgets:add_one' %}" method="post">
     {% csrf_token %}
-    {{form.as_div}}
-    <button name="submit">Add transaction</button>
+    {% bootstrap_form form %}
+    {% bootstrap_button button_type="submit" content="Add transaction" %}
   </form>
 {% endblock content %}
