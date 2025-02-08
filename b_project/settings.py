@@ -26,7 +26,12 @@ SECRET_KEY = 'django-insecure-nxxf=o)s2i%%s-w-)05=ii9$&7qz4585r)5i$5m7%e65)!0)x#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = [
+    ".railway.app",  # Allows any subdomain of railway.app
+    "127.0.0.1",  # Local development
+    "localhost",  # Local development
+    os.getenv("RAILWAY_URL", ""),  # Your Railway project domain
+]
 
 
 # Application definition
